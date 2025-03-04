@@ -60,6 +60,9 @@ const Body = () => {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [percentage, setPercentage] = useState();
   const [realTime, setRealTime] = useState(new Date());
+  const [title, setTitle] = useState(null);
+  const [discription, setDiscription] = useState(null);
+  const [activeField, setActiveField] = useState(""); 
 
   useEffect(() => {
     const time = setInterval(() => {
@@ -270,6 +273,20 @@ const Body = () => {
     return savedTasks ? JSON.parse(savedTasks) : filteredTasks;
   });
 
+  // Set value for transcript to value
+
+  React.useEffect(() => {
+    if (title) {
+      formik.setFieldValue("title", title);
+    }
+  }, [title]);
+  // console.log(titleTrans)
+  React.useEffect(() => {
+    if (discription) {
+      formik.setFieldValue("description", discription);
+    }
+  }, [discription]);
+
   // Formik for task form
   const formik = useFormik({
     initialValues: {
@@ -319,13 +336,13 @@ const Body = () => {
 
   return (
     <div
-      className={`w-screen flex items-center justify-center h-[619px] ${
+      className={`w-screen flex items-center justify-center h-[548px] ${
         isDarkMode ? `bg-gray-300` : ` bg-gray-200`
       }`}
     >
       {/* outline DIV */}
       <div
-        className={`w-[750px] rounded relative min-h-[580px] p-2  shadow-lg ${
+        className={`w-[750px] rounded relative min-h-[520px] p-2  shadow-lg ${
           isDarkMode ? `bg-gray-500` : `bg-w hite`
         }`}
       >
@@ -363,7 +380,12 @@ const Body = () => {
                   value={formik.values.title}
                 />
                 <div className="absolute top-2 right-2 text-gray-500">
-                  <SpeachReco />
+                  <SpeachReco
+                    setTrans={setTitle}
+                    setActiveField={() => setActiveField("title")}
+                    activeField={activeField}
+                    fieldName="title"
+                  />
                 </div>
               </div>
               <div className="h-7 mb-2">
@@ -387,7 +409,12 @@ const Body = () => {
                   value={formik.values.description}
                 ></textarea>
                 <div className="absolute right-2 top-2 text-gray-500">
-                  <SpeachReco />
+                  <SpeachReco
+                    setTrans={setDiscription}
+                    setActiveField={() => setActiveField("description")}
+                    activeField={activeField}
+                    fieldName="description"
+                  />
                 </div>
               </div>
               {/* ERROR */}
