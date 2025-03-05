@@ -16,7 +16,7 @@ const CustomInput = ({ name, type, formik, tip, holder }) => {
         <div className="relative">
           <input
             name={name}
-            className={`outline rounded w-full py-1 px-1 ${
+            className={`outline-dashed outline-1 rounded w-full py-1 px-1 ${
               hasError ? "outline-red-800" : ""
             }`}
             type={isTypePass ? (showPass ? "text" : "password") : type}

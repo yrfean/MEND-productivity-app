@@ -83,7 +83,7 @@ const SignUp = () => {
 
         <form
           onSubmit={formik.handleSubmit}
-          className=" shadow rounded px-8 py-4 mx-64 w-dvw flex flex-col bg-center bg-cover bg-[url('https://img.freepik.com/free-vector/gradient-white-background-wavy-lines_79603-2167.jpg?t=st=1739369300~exp=1739372900~hmac=2aa5bdfc5be9c1e65a3600cb8ab5b4fa84e7cea21c85e06508102ba29f609fca&w=1380')]"
+          className=" shadow rounded px-8 py-4 mx-64 w-[650px] flex flex-col bg-center bg-cover bg-[url('https://img.freepik.com/free-vector/gradient-white-background-wavy-lines_79603-2167.jpg?t=st=1739369300~exp=1739372900~hmac=2aa5bdfc5be9c1e65a3600cb8ab5b4fa84e7cea21c85e06508102ba29f609fca&w=1380')]"
         >
           <h1 className="text-center text-4xl font-serife m-3 tracking-wide">
             Create an account

@@ -62,7 +62,7 @@ const Body = () => {
   const [realTime, setRealTime] = useState(new Date());
   const [title, setTitle] = useState(null);
   const [discription, setDiscription] = useState(null);
-  const [activeField, setActiveField] = useState(""); 
+  const [activeField, setActiveField] = useState("");
 
   useEffect(() => {
     const time = setInterval(() => {
@@ -336,26 +336,26 @@ const Body = () => {
 
   return (
     <div
-      className={`w-screen flex items-center justify-center h-[548px] ${
+      className={`w- flex items-center justify-center h-[598px] ${
         isDarkMode ? `bg-gray-300` : ` bg-gray-200`
       }`}
     >
       {/* outline DIV */}
       <div
-        className={`w-[750px] rounded relative min-h-[520px] p-2  shadow-lg ${
-          isDarkMode ? `bg-gray-500` : `bg-w hite`
+        className={`w-s rounded relative min-h-[569px] p-2  shadow-lg ${
+          isDarkMode ? `bg-gray-500` : `bg-white`
         }`}
       >
         {/* POPUP ------------*/}
         {popup && (
           <>
             <div
-              className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-4 cursor-no-drop"
+              className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 cursor-no-drop"
               onClick={() => setPopup(false)}
             ></div>
-
+            {/* popup card */}
             <div
-              className={`z-5 rounded-lg absolute left-1/2 -translate-x-1/2 top-[0%] w-[480px] px-6 py-4 flex flex-col items-center justify-center ${
+              className={`z-20 rounded-lg absolute left-1/2 -translate-x-1/2 top-[0%] w-[486px] px-6 py-4 flex flex-col items-center justify-center ${
                 isDarkMode ? `bg-gray-500` : `bg-white`
               }`}
             >
@@ -371,10 +371,10 @@ const Body = () => {
                   type="text"
                   name="title"
                   placeholder="Input your title..."
-                  className={`w-full h-9 px-3 py-5 outline-2  rounded ${
+                  className={`w-full h-9 px-3 py-5 outline outline-1 focus:outline-2 rounded ${
                     isDarkMode
-                      ? `outline-white placeholder:text-white`
-                      : `outline-gray-500`
+                      ? `outline-white placeholder:text-gray-400`
+                      : `outline-gray-500 `
                   }`}
                   onChange={formik.handleChange}
                   value={formik.values.title}
@@ -400,9 +400,9 @@ const Body = () => {
                   type="text"
                   name="description"
                   placeholder="Also description..."
-                  className={`w-full resize-none px-3 py-3 outline-2 rounded ${
+                  className={`w-full resize-none px-3 py-3 outline outline-1 focus:outline-2 rounded ${
                     isDarkMode
-                      ? `outline-white placeholder:text-white`
+                      ? `outline-white placeholder:text-gray-400`
                       : `outline-gray-500`
                   }`}
                   onChange={formik.handleChange}
@@ -428,18 +428,22 @@ const Body = () => {
 
               {/* Due date  */}
               <h1 className="text-center text-gray-500 mb-2">Due date:</h1>
-              <div className="w-full outline-2 mb-5 outline-gray-400 rounded  flex justify-around">
+              <div className="w-full outline mb-5 outline-gray-400 rounded  flex justify-around">
                 <input
                   type="date"
                   name="dueDate"
-                  className="p-2 focus:outline-none cursor-pointer"
+                  className={`p-2 focus:outline-none cursor-pointer ${
+                    isDarkMode ? `bg-transparent` : ``
+                  }`}
                   onChange={formik.handleChange}
                   value={formik.values.dueDate}
                 />
                 <input
                   type="time"
                   name="dueTime"
-                  className="p-2 focus:outline-none cursor-pointer "
+                  className={`p-2 focus:outline-none cursor-pointer ${
+                    isDarkMode ? `bg-transparent` : ``
+                  }`}
                   onChange={formik.handleChange}
                   value={formik.values.dueTime}
                 />
@@ -448,10 +452,10 @@ const Body = () => {
               <div className="w-full flex justify-between mt-2 mb-2">
                 <button
                   onClick={() => setPopup(false)}
-                  className={`outline-2 font-semibold rounded px-4 py-2 cursor-pointer ${
+                  className={`outline font-semibold rounded px-4 py-2 cursor-pointer ${
                     isDarkMode
                       ? `outline-white text-white opacity-80 hover:opacity-60`
-                      : `outline-gray-500 hover:opacity-80`
+                      : `outline-gray-500 hover:opacity-60`
                   }`}
                 >
                   CANCEL
@@ -459,7 +463,7 @@ const Body = () => {
                 <button
                   type="submit"
                   onClick={formik.handleSubmit}
-                  className={`font-semibold rounded px-4 py-2 cursor-pointer shadow-md ${
+                  className={`font-semibold rounded px-4 py-2 cursor-pointer shadow-md transition ease-in-out ${
                     isDarkMode
                       ? `text-gray-900 bg-white opacity-80 hover:opacity-70`
                       : `text-white bg-gray-500 hover:bg-gray-700`
@@ -482,8 +486,8 @@ const Body = () => {
               placeholder="Search your tasks..."
               className={` w-full py-1 px-2 rounded ${
                 isDarkMode
-                  ? `placeholder:text-white opacity-80 outline outline-white`
-                  : `outline`
+                  ? `placeholder:text-gray-400 opacity-80 outline outline-white`
+                  : `outline outline-1 `
               }`}
               onChange={(e) => setSearchText(e.target.value)}
             />
@@ -513,7 +517,7 @@ const Body = () => {
             </button>
 
             <ul
-              className={`absolute w-full rounded font-semibold cursor-pointer transition-all duration-300 ease-in-out ${
+              className={`absolute z-10 w-full rounded font-semibold cursor-pointer transition-all duration-300 ease-in-out ${
                 isOpen
                   ? `opacity-100 scale-100 pointer-events-auto`
                   : `opacity-0 scale-95 pointer-events-none`
@@ -527,7 +531,7 @@ const Body = () => {
               }}
             >
               <li
-                className="outline rounded px-2 py-1 cursor-pointer hover:opacity-50"
+                className="outline outline-1 rounded px-2 py-1 cursor-pointer hover:opacity-50"
                 onClick={() => {
                   dispatch({ type: "FILTER", payload: "ALL" });
                   setIsOpen(false);
@@ -536,7 +540,7 @@ const Body = () => {
                 All
               </li>
               <li
-                className="outline rounded px-2 py-1 cursor-pointer hover:opacity-50"
+                className="outline outline-1 rounded px-2 py-1 cursor-pointer hover:opacity-50"
                 onClick={() => {
                   dispatch({ type: "FILTER", payload: "COMPLETED" });
                   setIsOpen(false);
@@ -545,7 +549,7 @@ const Body = () => {
                 Completed
               </li>
               <li
-                className="outline rounded px-2 py-1 cursor-pointer hover:opacity-50"
+                className="outline outline-1 rounded px-2 py-1 cursor-pointer hover:opacity-50"
                 onClick={() => {
                   dispatch({ type: "FILTER", payload: "INCOMPLETED" });
                   setIsOpen(false);
@@ -574,11 +578,15 @@ const Body = () => {
             isDarkMode ? `` : ``
           }`}
         >
-          <h1 className="text-center font-bold text-gray-600">
+          <h1
+            className={`text-center font-bold text-gray-600 ${
+              isDarkMode ? `text-gray-800` : ``
+            }`}
+          >
             Progressive Bar
           </h1>
           <div
-            className={`relative mx-5 h-3 rounded mt-1  ${
+            className={`relative shadow-md mx-5 h-3 rounded mt-1  ${
               isDarkMode ? `bg-gray-400` : `bg-gray-300`
             }`}
           >
@@ -595,7 +603,7 @@ const Body = () => {
         </div>
 
         {/* TASK LIST */}
-        <div className="mt-2 max-h-[375px] overflow-auto">
+        <div className="mt-2 max-h-[380px] overflow-auto">
           {filteredTasks.length === 0 ? (
             <div className="w-full h-full flex items-center justify-center">
               <img
@@ -623,7 +631,7 @@ const Body = () => {
                     }}
                   >
                     {/* Task Card Start */}
-                    <div className="ml-6 px-6 pb-3 pt-2 w-[665px] rounded-lg shadow bg-gray-20 flex flex-col gap-1">
+                    <div className="ml-6 px-6 pb-3 pt-2 w-[665px] rounded-lg shadow bg-gray-50 flex flex-col gap-1">
                       {/* Top Section - Checkbox, Title, Description */}
                       <div className="flex justify-between items-start">
                         {/* Left Side - Checkbox + Text */}
@@ -631,7 +639,11 @@ const Body = () => {
                           <input
                             type="checkbox"
                             checked={task.completed}
-                            className="mt-1 w-6 h-6 cursor-pointer appearance-none border-2 border-gray-400 rounded-full checked:bg-gray-500"
+                            className={`mt-1 w-6 h-6 cursor-pointer shadow appearance-none border-2 border-gray-400 rounded-full  ${
+                              isDarkMode
+                                ? `checked:bg-white`
+                                : `checked:bg-gray-400`
+                            }`}
                             onChange={() =>
                               toggleTask(task._id, task.completed)
                             }
@@ -659,7 +671,9 @@ const Body = () => {
                         <div className="flex items-center gap-6 mt-5 mr-4 text-gray-500">
                           <FontAwesomeIcon
                             icon={faPenToSquare}
-                            className="text-lg cursor-pointer hover:text-gray-800"
+                            className={`text-lg cursor-pointer hover:text-gray-800 ${
+                              isDarkMode ? `text-white` : ``
+                            }`}
                             onClick={() => {
                               setEditIndex(
                                 state.tasks.findIndex((t) => t._id === task._id)
@@ -673,14 +687,16 @@ const Body = () => {
                           />
                           <FontAwesomeIcon
                             icon={faTrash}
-                            className="text-lg cursor-pointer hover:text-gray-800"
+                            className={`text-lg cursor-pointer hover:text-gray-800 ${
+                              isDarkMode ? `text-white` : ``
+                            }`}
                             onClick={() => deleteTask(task._id)}
                           />
                         </div>
                       </div>
 
                       {/*  Due Date & Time */}
-                      <div className="flex justify-between items-center bg-gray-100 rounded mt-1 px-4 py-1 text-sm text-gray-600">
+                      <div className="flex justify-between items-center bg-gray-100 shadow rounded mt-1 px-4 py-1 text-sm text-gray-600">
                         {(task.dueDate || task.dueTime) && <p>Task due to:</p>}
                         <p>
                           {task.dueDate

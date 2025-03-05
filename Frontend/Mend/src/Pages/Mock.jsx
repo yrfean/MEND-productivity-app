@@ -15,10 +15,10 @@ const Mock = () => {
       {/* ----- */}
       {/* SPEECH RECO -------*/}
 
-      <div className="w-screen h-screen flex items-center justify-center">
+      {/* <div className="w-screen h-screen flex items-center justify-center">
         <SpeachReco />
         <p></p>
-      </div>
+      </div> */}
     </>
   );
 };

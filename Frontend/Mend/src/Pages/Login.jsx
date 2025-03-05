@@ -73,8 +73,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex gap-15 items-center justify-center h-screen w-screen bg-center bg-cover bg-[url('https://img.freepik.com/free-vector/gradient-white-background-wavy-lines_79603-2167.jpg?t=st=1739369300~exp=1739372900~hmac=2aa5bdfc5be9c1e65a3600cb8ab5b4fa84e7cea21c85e06508102ba29f609fca&w=1380')]">
-        <div className="w-lg pr-6 flex flex-col justify-cente mb-10 text-white p-8">
+      <div className="flex gap-16 items-center justify-center h-screen w-screen bg-center bg-cover bg-[url('https://img.freepik.com/free-vector/gradient-white-background-wavy-lines_79603-2167.jpg?t=st=1739369300~exp=1739372900~hmac=2aa5bdfc5be9c1e65a3600cb8ab5b4fa84e7cea21c85e06508102ba29f609fca&w=1380')]">
+        <div className="w-lg max-w-[510px] pr-6 flex flex-col justify-cente mb-10 text-white p-8">
           <div className="mb-9 flex items-center space-x-1">
             <h2
               className="text-6xl font-bold tracking-widest  opacity-100"
@@ -94,7 +94,7 @@ const Login = () => {
           </h1>
         </div>
 
-        <div className="w-lg shadow">
+        <div className="w-[490px] shadow">
           <form
             className="w-full bg-white p-6 rounded "
             onSubmit={formik.handleSubmit}

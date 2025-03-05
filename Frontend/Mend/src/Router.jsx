@@ -11,13 +11,14 @@ import { useEffect, useState } from "react";
 import Mock from "./Pages/Mock";
 import ForgotPassword from "./Pages/ForgotPassword";
 import AdminHome from "./Pages/AdminHome";
+import Pomodoro from "./Pages/Pomodoro";
 
 const AppLayout = () => {
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col w-screen overflow-x-hidden min-h-screen">
         <Header />
-        <main className="flex-gro">
+        <main className="flex-1">
           <Outlet />
         </main>
         <Footer />
@@ -64,6 +65,10 @@ const Router = createBrowserRouter([
   {
     path: "/adminHome",
     element: <AdminHome />,
+  },
+  {
+    path: "/pomodoro",
+    element: <Pomodoro />,
   },
 ]);
 export { Router };
