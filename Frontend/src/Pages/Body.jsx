@@ -341,7 +341,7 @@ const Body = () => {
     >
       {/* outline DIV */}
       <div
-        className={`w-[800px] rounded relative min-h-[569px] p-2  shadow-lg ${
+        className={`min-w-[800px] rounded relative min-h-[569px] p-2  shadow-lg ${
           isDarkMode ? `bg-gray-500` : `bg-white`
         }`}
       >
