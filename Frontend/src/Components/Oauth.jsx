@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+
 const Oauth = ({ rememberMeChecked }) => {
   const [values, setValues] = useState({ email: "", name: "" });
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ const Oauth = ({ rememberMeChecked }) => {
           const credentialResponseDecoded = jwtDecode(
             credentialResponse.credential
           );
-          console.log(credentialResponseDecoded);
+          // console.log(credentialResponseDecoded);
           const { email, name } = credentialResponseDecoded;
           setValues({ email, name });
         }}

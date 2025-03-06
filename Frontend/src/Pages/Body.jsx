@@ -335,13 +335,13 @@ const Body = () => {
 
   return (
     <div
-      className={`w- flex items-center justify-center h-[598px] ${
+      className={` flex items-center justify-center h-[598px] ${
         isDarkMode ? `bg-gray-300` : ` bg-gray-200`
       }`}
     >
       {/* outline DIV */}
       <div
-        className={`w-s rounded relative min-h-[569px] p-2  shadow-lg ${
+        className={`w-[800px] rounded relative min-h-[569px] p-2  shadow-lg ${
           isDarkMode ? `bg-gray-500` : `bg-white`
         }`}
       >
@@ -355,7 +355,7 @@ const Body = () => {
             {/* popup card */}
             <div
               className={`z-20 rounded-lg absolute left-1/2 -translate-x-1/2 top-[0%] w-[486px] px-6 py-4 flex flex-col items-center justify-center ${
-                isDarkMode ? `bg-gray-500` : `bg-white`
+                isDarkMode ? `bg-gray-500`: `bg-white`
               }`}
             >
               <h1
