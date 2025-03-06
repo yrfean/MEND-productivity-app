@@ -258,7 +258,7 @@ const updateImage = async (req, res) => {
       return res.status(400).json("no image file attached");
     }
 
-    user.image = `https://mend-ebhr.onrender.com/uploads/${req.file.filename}`;
+    user.image = `https://mend-backend-7e2c.onrender.com/${req.file.filename}`;
     await user.save();
 
     return res
