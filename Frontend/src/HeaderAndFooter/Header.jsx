@@ -37,6 +37,7 @@ const Header = () => {
     fetchData();
   }, []);
 
+  console.log(values);
   return (
     <div
       className={`flex items-center justify-around p-4 shadow-md  font-bold ${
@@ -88,7 +89,7 @@ const Header = () => {
 
         {/* Profile Picture + Popup */}
         <div
-          className="relative rounded-full shadow-sm" 
+          className="relative rounded-full shadow-sm"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
