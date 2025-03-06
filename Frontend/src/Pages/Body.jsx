@@ -335,13 +335,13 @@ const Body = () => {
 
   return (
     <div
-      className={` flex items-center justify-center h-[598px] ${
+      className={`flex items-center justify-center h-[598px] ${
         isDarkMode ? `bg-gray-300` : ` bg-gray-200`
       }`}
     >
       {/* outline DIV */}
       <div
-        className={`min-w-[800px] rounded relative min-h-[569px] p-2  shadow-lg ${
+        className={`min-w-[700px] rounded relative min-h-[569px] p-2 shadow-lg ${
           isDarkMode ? `bg-gray-500` : `bg-white`
         }`}
       >
@@ -630,7 +630,7 @@ const Body = () => {
                     }}
                   >
                     {/* Task Card Start */}
-                    <div className="ml-6 px-6 pb-3 pt-2 w-[665px] rounded-lg shadow bg-gray-50 flex flex-col gap-1">
+                    <div className="ml-4 px-5 pb-3 pt-2 w-[652px] rounded-lg shadow bg-gray-50 flex flex-col gap-1">
                       {/* Top Section - Checkbox, Title, Description */}
                       <div className="flex justify-between items-start">
                         {/* Left Side - Checkbox + Text */}
