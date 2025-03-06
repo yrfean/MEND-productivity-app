@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const BlockPopup = ({ name, id, email, unblock, onClose }) => {
   const [dlt, setDlt] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -10,15 +10,15 @@ const BlockPopup = ({ name, id, email, unblock, onClose }) => {
     setLoading(true);
     try {
       if (unblock) {
-        await axios.post("http://localhost:3000/userUnBlock", { email });
+        await axios.post(`${backendUrl}/userUnBlock`, { email });
         alert("User Unblocked");
       } else {
         // First, block the user
-        await axios.post("http://localhost:3000/userBlock", { email, id });
+        await axios.post(`${backendUrl}/userBlock`, { email, id });
 
         // If delete checkbox is checked, delete the user after blocking
         if (dlt) {
-          await axios.post("http://localhost:3000/userDelete", { email, id });
+          await axios.post(`${backendUrl}/userDelete`, { email, id });
           alert("User Deleted");
         } else {
           alert("User Blocked");

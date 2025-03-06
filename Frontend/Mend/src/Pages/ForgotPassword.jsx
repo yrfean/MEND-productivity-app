@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const validationSchema = yup.object({
   email: yup
     .string()
@@ -38,7 +38,7 @@ const ForgotPassword = () => {
     onSubmit: async (values) => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/forgotPassword",
+          `${backendUrl}/forgotPassword`,
           values
         );
         console.log(response.data);

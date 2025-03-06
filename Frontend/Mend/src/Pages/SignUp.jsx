@@ -5,6 +5,7 @@ import CustomInput from "../Components/Input";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const validationSchema = yup.object({
   userName: yup
@@ -47,7 +48,7 @@ const SignUp = () => {
     onSubmit: async (values) => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/signup",
+          `${backendUrl}/signup`,
           values
         );
         console.log(response.data);

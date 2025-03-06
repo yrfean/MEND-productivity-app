@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { DarkModeContext } from "./DarkModeContext";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const ProfilePopup = () => {
   const [values, setValues] = useState(null);
@@ -11,7 +12,7 @@ const ProfilePopup = () => {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
     try {
-      const response = await axios.get("http://localhost:3000/getUser", {
+      const response = await axios.get(`${backendUrl}/getUser`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

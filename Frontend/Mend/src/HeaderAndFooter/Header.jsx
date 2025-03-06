@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProfilePopup from "../Components/profilePopup";
 import { DarkModeContext } from "../Components/DarkModeContext";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Header = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Header = () => {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
     try {
-      const response = await axios.get("http://localhost:3000/getUser", {
+      const response = await axios.get(`${backendUrl}/getUser`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -7,6 +7,7 @@ import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DarkModeContext } from "../Components/DarkModeContext";
 import UndoButton from "../Components/UndoButton";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const validationSchema = yup.object({
   email: yup.string().email().required("user need to confirm his email"),
@@ -61,16 +62,12 @@ const Profile = () => {
     formData.delete("image");
     formData.append("image", selectedFile);
     try {
-      const response = await axios.post(
-        "http://localhost:3000/updateImage",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${backendUrl}/updateImage`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
       console.log("image upload successful:", response.data);
       setNewDp(response.data.user.image);
     } catch (error) {
@@ -85,15 +82,11 @@ const Profile = () => {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
     try {
-      const response = await axios.put(
-        "http://localhost:3000/updateProfile",
-        values,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.put(`${backendUrl}/updateProfile`, values, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log(response.data);
     } catch (error) {
       console.error("Error uploading profile:", error);
@@ -106,7 +99,7 @@ const Profile = () => {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
     try {
-      const response = await axios.get("http://localhost:3000/getUser", {
+      const response = await axios.get(`${backendUrl}/getUser`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

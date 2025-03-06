@@ -59,7 +59,7 @@ app.put("/updateTask", auth, updateTask); // Update a task
 app.delete("/deleteTask", auth, deleteTask); // Delete a task
 app.get("/getAlltasks", auth, getAllTasks); // Get all tasks
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
 });

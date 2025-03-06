@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Oauth from "../Components/Oauth";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const validationSchema = yup.object({
   email: yup
@@ -33,10 +34,7 @@ const Login = () => {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        const response = await axios.post(
-          "http://localhost:3000/login",
-          values
-        );
+        const response = await axios.post(`${backendUrl}/login`, values);
         // console.log("Login Succesfull", response.data);
         localStorage.removeItem("token");
         sessionStorage.removeItem("token");
@@ -59,7 +57,7 @@ const Login = () => {
   });
 
   const fetchedQuotes = async () => {
-    const response = await axios.get("http://localhost:3000/fetchQuotes");
+    const response = await axios.get(`${backendUrl}/fetchQuotes`);
     // console.log(response.data.length);
     const index = Math.floor(Math.random() * response.data.length);
     // console.log(index);

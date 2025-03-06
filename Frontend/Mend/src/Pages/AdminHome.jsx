@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Skelton from "../Components/Skelton";
 import UndoButton from "../Components/UndoButton";
 import BlockPopup from "../Components/BlockPopup";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const AdminHome = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
@@ -20,7 +20,7 @@ const AdminHome = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/getUsers");
+      const response = await axios.get(`${backendUrl}/getUsers`);
       setUsers(response.data.users);
     } catch (error) {
       console.error(error);
@@ -29,7 +29,7 @@ const AdminHome = () => {
 
   const fetchBlocked = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/blockedEmails");
+      const response = await axios.get(`${backendUrl}/blockedEmails`);
       const blockedUsers = response.data.blockedEmails;
       // console.log(blockedUsers)
       const emails = blockedUsers.map((x) => x.email);

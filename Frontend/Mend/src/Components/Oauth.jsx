@@ -3,7 +3,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
-
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const Oauth = ({ rememberMeChecked }) => {
   const [values, setValues] = useState({ email: "", name: "" });
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const Oauth = ({ rememberMeChecked }) => {
   const passValues = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/googleSignin",
+        `${backendUrl}/googleSignin`,
         values
       );
       console.log("Login Succesfull", response.data);

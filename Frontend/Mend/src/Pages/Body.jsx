@@ -15,8 +15,7 @@ import { data, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../Components/DarkModeContext";
 import { Reorder } from "framer-motion";
 import SpeachReco from "../Components/SpeachReco";
-
-const API_URL = "http://localhost:3000";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const validationSchema = yup.object({
   title: yup.string().required("You have to name a title"),
