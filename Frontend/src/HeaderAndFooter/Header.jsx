@@ -17,7 +17,7 @@ const Header = () => {
     sessionStorage.removeItem("token");
   };
 
-  // FETCH
+  // FETCH Dp
   const fetchData = async () => {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -39,7 +39,7 @@ const Header = () => {
 
   return (
     <div
-      className={`flex items-center justify-around p-4 shadow-md font-bold ${
+      className={`flex items-center justify-around p-4 shadow-md  font-bold ${
         isDarkMode ? `bg-gray-500` : `bg-gray-100`
       }`}
     >

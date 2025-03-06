@@ -247,7 +247,6 @@ const getAllTasks = async (req, res) => {
 
 const updateImage = async (req, res) => {
   const email = req.user;
-  // console.log(req.file);
 
   try {
     const user = await User.findOne({ email });
@@ -258,15 +257,17 @@ const updateImage = async (req, res) => {
     if (!req.file) {
       return res.status(400).json("no image file attached");
     }
-    user.image = `http://localhost:3000/uploads/${req.file.filename}`;
-    user.save();
+
+    user.image = `https://mend-ebhr.onrender.com/uploads/${req.file.filename}`;
+    await user.save();
+
     return res
       .status(200)
-      .json({ message: "image uploading successfull", user });
+      .json({ message: "image uploading successful", user });
   } catch (error) {
     return res
-      .status(404)
-      .json({ message: "image uploading unsuccesfull", error: error.message });
+      .status(500)
+      .json({ message: "image uploading unsuccessful", error: error.message });
   }
 };
 
