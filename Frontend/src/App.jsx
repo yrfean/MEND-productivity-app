@@ -4,7 +4,7 @@ import { Router } from "./Router";
 import DarkModeProvider from "./Components/DarkModeContext";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
     <>
