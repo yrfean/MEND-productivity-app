@@ -57,8 +57,8 @@ const login = async (req, res) => {
 
     // Check if it's the admin
     if (
-      email === process.env.ADMIN_EMAIL &&
-      password === process.env.ADMIN_PASS
+      email === "admin@gmail.com" &&
+      password === "Alohamora123"
     ) {
       const token = await generateToken(email);
       return res.json({
